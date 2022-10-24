@@ -5,7 +5,7 @@ public protocol WeatherService {
 }
 
 class WeatherServiceImpl: WeatherService {
-    let url = "http://127.0.0.1:3000/"
+    let url = "https://weatherhost.herokuapp.com/"
     func getTemperature() async throws -> Int {
         return try await withCheckedThrowingContinuation { continuation in
             AF.request(url, method: .get).validate(statusCode: 200..<300).responseDecodable(of: Weather.self) { response in
