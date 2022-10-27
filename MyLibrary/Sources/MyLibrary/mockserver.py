@@ -7,7 +7,6 @@ r =requests.get('https://api.openweathermap.org/data/2.5/weather?q=Corvallis,us&
 
 app = Flask(__name__)
 temp=r.json()
-temp['main']['temp']=62
 @app.route('/')
 def hello_world():
     return json.dumps(r.json())
