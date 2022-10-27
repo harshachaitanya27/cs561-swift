@@ -6,7 +6,6 @@ public protocol WeatherService {
 
 class WeatherServiceImpl: WeatherService {
     let url = "https://weatherhost.herokuapp.com/"
-
     func getTemperature() async throws -> Int {
         return try await withCheckedThrowingContinuation { continuation in
             AF.request(url, method: .get).validate(statusCode: 200..<300).responseDecodable(of: Weather.self) { response in
@@ -24,7 +23,7 @@ class WeatherServiceImpl: WeatherService {
     }
 }
 
-private struct Weather: Decodable {
+public struct Weather: Decodable {
     let main: Main
 
     struct Main: Decodable {

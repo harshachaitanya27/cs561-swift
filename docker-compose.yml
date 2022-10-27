@@ -1,0 +1,8 @@
+services:
+  dev:
+    image: "swiftlang/swift:nightly-focal"
+    volumes:
+      - C:\Users\coe_user\Desktop\cs561-swift:/code
+    environment:
+      - USER=Harsha
+      
