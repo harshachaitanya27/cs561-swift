@@ -14,7 +14,7 @@ func testEqual() async throws{
     print("Temperature is ",temperature)
 
     //then
-    XCTAssertNotNull(temperature)
+    XCTAssertNotNil(temperature)
 }
 func testDatatype() async throws{
     //given
