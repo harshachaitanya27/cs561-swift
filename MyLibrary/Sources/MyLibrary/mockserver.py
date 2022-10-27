@@ -2,16 +2,15 @@ from flask import Flask
 import requests
 import pprint
 import json
-# r =requests.get('https://api.openweathermap.org/data/2.5/weather?q=Corvallis,us&APPID=0d4c3c05756767f0202df9dd82e9d402')
-f = open('data.json')
-data = json.load(f)
-pprint.pprint(data,indent=2)
+r =requests.get('https://api.openweathermap.org/data/2.5/weather?q=Corvallis,us&APPID=0d4c3c05756767f0202df9dd82e9d402')
+#pprint.pprint(r.json(),indent=2)
 
 app = Flask(__name__)
-
+temp=r.json()
+temp['main']['temp']=62
 @app.route('/')
 def hello_world():
-    return json.dumps(data)
+    return json.dumps(r.json())
  
 # main driver function
 if __name__ == '__main__':
